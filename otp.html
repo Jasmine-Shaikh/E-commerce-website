@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./otp.css">
+    <title>OTP Verification</title>
+</head>
+
+<body>
+    <div>
+        <h1>OTP Verification</h1>
+        <h4>Please enter otp</h4>
+        <input id="otp">
+        <button id="submit" onclick="verifyOtp()">Submit</button> </div>
+</body>
+<script>
+    function verifyOtp() {
+        var otp = document.querySelector('#otp').value;
+
+        if (otp === "1234") {
+            alert("OTP Verification successful. Order complete!!!");
+            window.location.href = "womens.html"
+
+        } else {
+            alert("Error: Incorrect OTP. Please try again.")
+        }
+    }
+</script>
+
+</html>

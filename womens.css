@@ -1,0 +1,79 @@
+body {
+    margin: 0px;
+    height: 100%;
+    font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+#top {
+    background-color: #232F3E;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 20px 10px 20px;
+}
+
+#searchBar {
+    width: 55%;
+    border-radius: 5px;
+    padding: 3px 5px;
+    border-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(236, 164, 30);
+}
+
+#productsDisplay {
+    display: flex;
+    flex-direction: row;
+}
+
+#filters {
+    width: 20%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 10px 30px 10px;
+}
+
+#products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #adadad;
+}
+
+.productCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.productCard>button {
+    height: 27px;
+    width: 100%;
+    color: #111;
+    padding: 3px 7px;
+    line-height: normal;
+    border-radius: 3px;
+    background: #f0c14b;
+    border-style: none;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset;
+    border-color: #a88734 #9c7e31 #846a29;
+}
+
+select {
+    margin-bottom: 20px;
+    height: 27px;
+}
+
+#filters>button {
+    margin-bottom: 7px;
+    padding: 3px;
+}

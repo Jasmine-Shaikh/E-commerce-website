@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+    <form id="loginPage">
+        <h1>Log In</h1>
+        <label>Enter registered email or mobile number</label>
+        <input type="email" id="userId">
+        <label>Enter Password</label>
+        <input type="password" id="userPassword">
+        <input type="submit" value="Login" id="login">
+    </form>
+</body>
+<script>
+    document.getElementById('loginPage').addEventListener('submit', loginVerification);
+
+    var verifyInfo = JSON.parse(localStorage.getItem('userInfo'));
+
+    function loginVerification() {
+        event.preventDefault()
+        var enteredId = document.getElementById('userId').value;
+        var enteredPassword = document.getElementById('userPassword').value;
+
+        verifyInfo.forEach(userInfo => {
+
+            if ((enteredId === userInfo.email && enteredPassword === userInfo.password) || (enteredId === userInfo.mobile && enteredPassword === userInfo.password)) {
+                alert("Login Successful!")
+                window.location.href = "mens.html"
+            } else {
+                alert("Incorrect Password!Please try again with the correct password")
+            }
+
+        })
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,68 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#cartItems {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+.productCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: min-content;
+    padding: 10px;
+    font-size: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.productCard>button {
+    height: 27px;
+    width: 100%;
+    color: #111;
+    padding: 3px 7px;
+    line-height: normal;
+    border-radius: 3px;
+    background: #f0c14b;
+    border-style: none;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset;
+    border-color: #a88734 #9c7e31 #846a29;
+}
+
+#left {
+    justify-content: center;
+    margin: 2px;
+    padding: 30px 10px 100px 10px;
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+}
+
+#couponBtn {
+    color: #111;
+    padding: 3px 7px;
+    line-height: normal;
+    border-radius: 3px;
+    background: #f0c14b;
+    border-style: none;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset;
+    border-color: #a88734 #9c7e31 #846a29;
+}
+
+#left>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#checkout {
+    text-decoration: none;
+    text-align: center;
+    color: #111;
+    border-radius: 5px;
+    padding: 5px 42px 5px 42px;
+    background-color: #f0c14b;
+}

@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#loginPage {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 25px 40px 25px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+input {
+    height: 27px;
+    padding: 3px 7px;
+    line-height: normal;
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset;
+    margin-bottom: 14px;
+}
+
+label {
+    font-size: 13px;
+    line-height: 19px;
+    color: #111;
+}
+
+#login {
+    height: 27px;
+    color: #111;
+    padding: 3px 7px;
+    line-height: normal;
+    border-radius: 3px;
+    background: #f0c14b;
+    border-style: none;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset;
+    border-color: #a88734 #9c7e31 #846a29;
+}

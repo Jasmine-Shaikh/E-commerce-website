@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./cart.css">
+    <title>Your Cart</title>
+</head>
+
+<body>
+    <div id="right">
+        <h2></h2>
+        <div id="cartItems">
+
+        </div>
+    </div>
+    <div id="left">
+        <input type="text" id="couponCode" placeholder="Enter coupon code">
+        <button onclick="applyCoupon()" id="couponBtn">Apply</button>
+        <div>
+            <h4>Final Cart total:</h4>
+            <h4 id="finalBill"></h4>
+        </div>
+        <a href="./payment.html" id="checkout">Proceed to checkout</a>
+    </div>
+
+</body>
+
+<script>
+    var heading = document.querySelector('h2');
+    var finalBillVal = document.getElementById('finalBill');
+
+    var cartItems;
+
+    if (localStorage.getItem('cartdata') === null) {
+        cartItems = [];
+
+    } else {
+        cartItems = JSON.parse(localStorage.getItem('cartdata'));
+
+        var cartValue = cartItems.reduce(getSum, 0);
+
+        function getSum(total, num) {
+            return total + num.price;
+        }
+
+        var noOfItems = cartItems.length;
+
+        if (noOfItems === 0) {
+            heading.innerHTML = 'Your cart is empty! :(';
+
+            var continueShopping = document.createElement('a');
+            continueShopping.setAttribute('href', "./womens.html");
+            continueShopping.innerText = "Continue Shopping by clicking here";
+            var emptyCart = document.getElementById('cartItems');
+            emptyCart.append(continueShopping);
+        } else {
+
+            heading.innerHTML = "Your cart has " + noOfItems + " items and your cart total is " + cartValue + " Rs.";
+            finalBillVal.innerText = cartValue + " Rs";
+
+        }
+    }
+
+    cartItems.forEach(function(product, index) {
+
+        var productCard = document.createElement('div');
+        productCard.setAttribute('class', 'productCard')
+
+        var name = document.createElement('p');
+        name.innerText = product.name;
+
+        var image = document.createElement('img');
+        image.src = product.image_url;
+
+        var price = document.createElement('p');
+        price.innerText = product.price;
+
+        var removeBtn = document.createElement('button');
+        removeBtn.setAttribute('id', 'removeFromCart');
+        removeBtn.innerText = "Remove from Cart";
+        removeBtn.addEventListener('click', function() {
+
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartdata', JSON.stringify(cartItems));
+            window.location.reload();
+        });
+
+        productCard.append(image, name, price, removeBtn);
+        document.getElementById('cartItems').append(productCard);
+    });
+
+    function applyCoupon() {
+        var couponValue = document.getElementById('couponCode').value;
+
+        if (couponValue === "masai30") {
+            finalBillVal.innerText = (cartValue - (cartValue * 0.3)) + " Rs";
+        } else {
+            finalBillVal.innerText = cartValue + " Rs";
+        }
+    }
+</script>
+
+</html>
